@@ -1,7 +1,7 @@
 // Setup
 // https://docs.deta.sh/docs/common_issues/#nodejs-micros-cannot-serve-binary-files
-// echo BINARY_CONTENT_TYPES=image/*,audio/*,video/*,font/*,application/* >> .env
-// echo KEY=xxxxxxxxxxx >> .env
+// echo 'BINARY_CONTENT_TYPES=image/*,audio/*,video/*,font/*,application/*' >> .env
+// echo 'KEY=xxxxxxxxxxx' >> .env
 // deta update -e .env
 
 
