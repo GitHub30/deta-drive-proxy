@@ -1,6 +1,6 @@
 # deta-drive-proxy
 
-### Syntax
+### Usage
 
 ```bash
 project_id=c0m8f10j
@@ -19,3 +19,18 @@ https://public.deta.dev/c0m8f10j/Drive/eevee.jpg?key=c0m8f10j_uvveYTnAqUmVWCZ6oe
 https://public.deta.dev/c0m8f10j/Drive/eevee.jpg
 
 <img src=https://public.deta.dev/c0m8f10j/Drive/eevee.jpg>
+
+### Deploy app
+
+```bash
+npm install
+
+echo 'BINARY_CONTENT_TYPES=image/*,audio/*,video/*,font/*,application/*' >> .env
+echo 'KEY=xxxxxxxxxxx' >> .env
+deta update -e .env
+
+deta deploy
+
+# for Debug
+deta visor enable
+```
