@@ -23,6 +23,8 @@ https://public.deta.dev/c0m8f10j/Drive/eevee.jpg
 ### Deploy app
 
 ```bash
+git clone https://github.com/GitHub30/deta-drive-proxy
+cd deta-drive-proxy/
 npm install
 
 echo 'BINARY_CONTENT_TYPES=image/*,audio/*,video/*,font/*,application/*' >> .env
