@@ -12,8 +12,9 @@ const deta = Deta(process.env.KEY);
 const db = deta.Base('simpleDB');
 // install express with `npm install express` 
 const express = require('express')
+const cors = require('cors')
 const app = express()
-
+app.use(cors())
 
 app.get('/:project_id/:drive_name/:name([^/]*)', async (req, res) => {
     const url = `https://drive.deta.sh/v1/${req.params.project_id}/${req.params.drive_name}/files/download?name=${req.params.name}`
@@ -29,6 +30,14 @@ app.get('/:project_id/:drive_name/:name([^/]*)', async (req, res) => {
         actual.headers.forEach((v, n) => res.setHeader(n, v));
         actual.body.pipe(res);
     })
+})
+
+app.get('/', async (req, res) => {
+    if (req.query.project_id && req.query.key) {
+        await db.put({ key: req.query.project_id, value: req.query.key })
+        return res.send('Hello World')
+    }
+    res.redirect('https://github.com/GitHub30/deta-drive-proxy')
 })
 
 // export 'app'
